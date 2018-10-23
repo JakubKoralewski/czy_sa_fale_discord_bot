@@ -2,3 +2,5 @@
 !czy_sa_fale/
 !tests/
 config.py
+*.log
+!*.txt
