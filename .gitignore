@@ -1,0 +1,11 @@
+.pytest_cache/
+__pycache__
+.vscode/
+tests/
+!czy_sa_fale/
+config.py
+server.py
+
+*.log
+!*.txt
+/*.env
