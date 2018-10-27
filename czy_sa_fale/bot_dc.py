@@ -69,6 +69,8 @@ async def on_message(message: str):
     if message.author == client.user:
         return
     msg = None
+    if message.content.startswith('!help'):
+        msg = '!tekst - wypisuje tekst\nSpróbuj też zapytać o fale!'
     if message.content.startswith('!hello'):
         msg = 'Elo {0.author.mention}'.format(message)
     elif message.content.startswith('!tekst'):
