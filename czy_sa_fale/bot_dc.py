@@ -40,7 +40,7 @@ with open(filepath, 'r', encoding='UTF-8') as tekst:
 client = discord.Client()
 
 
-def czy_pyta_o_fale(message: str) -> False or re.match:
+def czy_pyta_o_fale(message: str) -> None or re.match:
     logging.info('funkcja czy_pyta_o_fale wywolana')
     logging.info('z argumentem {}'.format(message))
     # Czy zawiera '?'.
@@ -48,13 +48,13 @@ def czy_pyta_o_fale(message: str) -> False or re.match:
     znak_zapytania = re.search(znak_zapytania, message)
     if not znak_zapytania:
         logging.debug('nie zawiera znaku zapytania')
-        return False
+        return None
     # Czy pyta o fale.
     fale = re.compile(r'(fale)|(fal)', re.IGNORECASE)
     fale = re.search(fale, message)
     if not fale:
         logging.debug('nie zawiera fale, fal')
-        return False
+        return None
     return fale
 
 
@@ -64,23 +64,22 @@ def odpowiedz_pyt_o_fale() -> str:
 
 
 @client.event
-async def on_message(message: str):
-    msg = None
+async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == client.user:
         return
-    msg = None
     if message.content.startswith('!help'):
         msg = '!tekst - wypisuje tekst\nSpróbuj też zapytać o fale!'
-    if message.content.startswith('!hello'):
+    elif message.content.startswith('!hello'):
         msg = 'Elo {0.author.mention}'.format(message)
     elif message.content.startswith('!tekst'):
         msg = tekst
     elif czy_pyta_o_fale(message.content):
         msg = odpowiedz_pyt_o_fale()
+    else:
+        return
 
-    if message is not None:
-        await client.send_message(message.channel, msg)
+    await client.send_message(message.channel, msg)
 
 
 @client.event

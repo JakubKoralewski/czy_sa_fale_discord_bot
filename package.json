@@ -2,11 +2,15 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "czy_sa_fale_discord_bot",
+  "name": "czy-sa-fale-discord-bot",
   "version": "0.0.1",
   "description": "Czy sa fale? NIE MA FAL!",
-  "dependencies": {},
-  "engines": {},
+  "dependencies": {
+    "ffmpeg-binaries": "^4.0.0"
+  },
+  "engines": {
+    "node": "9.x"
+  },
   "repository": {
     "url": "https://github.com/JakubKoralewski/czy_sa_fale_discord_bot"
   },
