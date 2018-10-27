@@ -65,6 +65,7 @@ def odpowiedz_pyt_o_fale() -> str:
 
 @client.event
 async def on_message(message: str):
+    msg = None
     # we do not want the bot to reply to itself
     if message.author == client.user:
         return
@@ -78,7 +79,8 @@ async def on_message(message: str):
     elif czy_pyta_o_fale(message.content):
         msg = odpowiedz_pyt_o_fale()
 
-    await client.send_message(message.channel, msg)
+    if message is not None:
+        await client.send_message(message.channel, msg)
 
 
 @client.event
