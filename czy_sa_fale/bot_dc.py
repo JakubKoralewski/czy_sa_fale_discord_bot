@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: future_fstrings -*-
+#!/usr/bin/env python
+# coding: future_fstrings
 import discord
 import logging
 import os
@@ -42,7 +42,7 @@ client = discord.Client()
 
 def czy_pyta_o_fale(message: str) -> False or re.match:
     logging.info('funkcja czy_pyta_o_fale wywolana')
-    logging.info(f'z argumentem {message}')
+    logging.info('z argumentem {}'.format(message))
     # Czy zawiera '?'.
     znak_zapytania = re.compile(r'\?')
     znak_zapytania = re.search(znak_zapytania, message)
@@ -81,7 +81,8 @@ async def on_message(message: str):
 
 @client.event
 async def on_ready():
-    login_info = f'Logged in as {client.user.name}, id: {client.user.id}\n---------'
+    login_info = 'Logged in as {}, id: {}\n---------'.format(
+        client.user.name, client.user.id)
     logging.info(login_info)
     print(login_info)
 
