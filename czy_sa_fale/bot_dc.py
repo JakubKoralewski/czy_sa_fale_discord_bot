@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# coding: future_fstrings
 import discord
 import logging
 import os
@@ -9,6 +8,7 @@ import random
 
 # Set up logging.
 
+#logging.basicConfig(filename='app.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logging.basicConfig(filename='app.log', filemode='w',
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logging.warning('Program started.')

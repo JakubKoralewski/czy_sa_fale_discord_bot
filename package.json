@@ -1,0 +1,19 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "czy_sa_fale_discord_bot",
+  "version": "0.0.1",
+  "description": "Czy sa fale? NIE MA FAL!",
+  "dependencies": {},
+  "engines": {},
+  "repository": {
+    "url": "https://github.com/JakubKoralewski/czy_sa_fale_discord_bot"
+  },
+  "license": "MIT",
+  "keywords": [
+    "python",
+    "python3",
+    "discord"
+  ]
+}
