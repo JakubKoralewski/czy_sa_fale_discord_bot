@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: future_fstrings -*-
 import discord
 import logging
 import os
@@ -33,7 +35,7 @@ filepath = os.path.abspath(os.path.join(basepath, "..", "static", "tekst.txt"))
 with open(filepath, 'r', encoding='UTF-8') as tekst:
     logging.info('otwieram plik z tekstem')
     tekst = tekst.read()
-#print(tekst)
+# print(tekst)
 
 client = discord.Client()
 
